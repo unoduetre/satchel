@@ -74,12 +74,21 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
+    ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.4)
     bindex (0.8.1)
+    binding_of_caller (1.0.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
+    brakeman (6.0.1)
     builder (3.2.4)
+    bundler-audit (0.9.1)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
+    byebug (11.1.3)
+    coderay (1.1.3)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -87,12 +96,22 @@ GEM
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
     date (3.3.4)
-    debug (1.8.0)
-      irb (>= 1.5.0)
-      reline (>= 0.3.1)
+    debug_inspector (1.1.0)
+    diff-lcs (1.5.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (3.2.2)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (3.25.0-x86_64-linux)
@@ -102,6 +121,7 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
+    interception (0.5)
     io-console (0.6.0)
     irb (1.8.3)
       rdoc
@@ -109,6 +129,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.6.3)
+    language_server-protocol (3.17.0.3)
     loofah (2.21.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -118,6 +140,8 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    memory_profiler (1.0.1)
+    method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
@@ -134,13 +158,39 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    parallel (1.23.0)
+    parser (3.2.2.4)
+      ast (~> 2.4.1)
+      racc
     pg (1.5.4)
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-byebug (3.10.1)
+      byebug (~> 11.0)
+      pry (>= 0.13, < 0.15)
+    pry-doc (1.4.0)
+      pry (~> 0.11)
+      yard (~> 0.9.11)
+    pry-inline (1.0.7)
+      pry (> 0.10.0)
+      unicode (~> 0.4.4)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
+    pry-rescue (1.5.2)
+      interception (>= 0.5)
+      pry (>= 0.12.0)
+    pry-stack_explorer (0.6.1)
+      binding_of_caller (~> 1.0)
+      pry (~> 0.13)
     psych (5.1.1.1)
       stringio
     puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (3.0.8)
+    rack-mini-profiler (3.1.1)
+      rack (>= 1.2.0)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -177,6 +227,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
+    rainbow (3.1.1)
     rake (13.1.0)
     rdoc (6.6.0)
       psych (>= 4.0.0)
@@ -184,11 +235,61 @@ GEM
       redis-client (>= 0.17.0)
     redis-client (0.18.0)
       connection_pool
+    regexp_parser (2.8.2)
     reline (0.4.0)
       io-console (~> 0.5)
+    rexml (3.2.6)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.3)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.1)
+    rubocop (1.57.2)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.2.2.4)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.28.1, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.30.0)
+      parser (>= 3.2.1.0)
+    rubocop-capybara (2.19.0)
+      rubocop (~> 1.41)
+    rubocop-factory_bot (2.24.0)
+      rubocop (~> 1.33)
+    rubocop-faker (1.1.0)
+      faker (>= 2.12.0)
+      rubocop (>= 0.82.0)
+    rubocop-rails (2.22.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+    rubocop-rspec (2.25.0)
+      rubocop (~> 1.40)
+      rubocop-capybara (~> 2.17)
+      rubocop-factory_bot (~> 2.22)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     sass-embedded (1.69.5-x86_64-linux-gnu)
       google-protobuf (~> 3.23)
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -196,6 +297,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stackprof (0.2.25)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.0.9)
@@ -207,6 +309,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode (0.4.4.4)
+    unicode-display_width (2.5.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -216,6 +320,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yard (0.9.34)
     zeitwerk (2.6.12)
 
 PLATFORMS
@@ -223,15 +328,34 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  brakeman
+  bundler-audit
   dartsass-rails
-  debug
+  dotenv-rails
+  factory_bot_rails (~> 6.2)
+  faker (~> 3.2)
   importmap-rails
   jbuilder
+  memory_profiler
   pg (~> 1.1)
+  pry-byebug
+  pry-doc
+  pry-inline
+  pry-rails
+  pry-rescue
+  pry-stack_explorer
   puma (>= 5.0)
+  rack-mini-profiler
   rails (~> 7.1.1)
   redis (>= 4.0.1)
+  rspec-rails (~> 6.0)
+  rubocop-factory_bot
+  rubocop-faker
+  rubocop-rails
+  rubocop-rspec
+  shoulda-matchers (~> 5.3)
   sprockets-rails
+  stackprof
   stimulus-rails
   turbo-rails
   tzinfo-data
