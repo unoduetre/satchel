@@ -38,7 +38,7 @@
 !/app/assets/builds/.keep
 
 # simplecov coverage
-/coverage
+/coverage/*
 
 # vim swap files (but don't ignore flash)
 *.sw[^f]
