@@ -98,10 +98,7 @@ GEM
     date (3.3.4)
     debug_inspector (1.1.0)
     diff-lcs (1.5.0)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
+    docile (1.4.0)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -126,9 +123,6 @@ GEM
     irb (1.8.3)
       rdoc
       reline (>= 0.3.8)
-    jbuilder (2.11.5)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
     loofah (2.21.4)
@@ -290,6 +284,12 @@ GEM
       google-protobuf (~> 3.23)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -301,6 +301,10 @@ GEM
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.0.9)
+    tailwindcss-rails (2.0.32-x86_64-linux)
+      railties (>= 6.0.0)
+    textacular (5.6.0)
+      activerecord (>= 5.0, < 7.2)
     thor (1.3.0)
     timeout (0.4.1)
     turbo-rails (1.5.0)
@@ -330,34 +334,35 @@ DEPENDENCIES
   bootsnap
   brakeman
   bundler-audit
-  dartsass-rails
-  dotenv-rails
+  dartsass-rails (~> 0.5.0)
   factory_bot_rails (~> 6.2)
   faker (~> 3.2)
-  importmap-rails
-  jbuilder
+  importmap-rails (~> 1.2)
   memory_profiler
-  pg (~> 1.1)
+  pg (~> 1.5)
   pry-byebug
   pry-doc
   pry-inline
   pry-rails
   pry-rescue
   pry-stack_explorer
-  puma (>= 5.0)
+  puma (~> 6.4)
   rack-mini-profiler
   rails (~> 7.1.1)
-  redis (>= 4.0.1)
+  redis (~> 5.0)
   rspec-rails (~> 6.0)
   rubocop-factory_bot
   rubocop-faker
   rubocop-rails
   rubocop-rspec
   shoulda-matchers (~> 5.3)
-  sprockets-rails
+  simplecov
+  sprockets-rails (~> 3.4)
   stackprof
-  stimulus-rails
-  turbo-rails
+  stimulus-rails (~> 1.3)
+  tailwindcss-rails (~> 2.0)
+  textacular (~> 5.6)
+  turbo-rails (~> 1.5)
   tzinfo-data
   web-console
 

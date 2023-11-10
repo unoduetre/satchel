@@ -1,0 +1,8 @@
+<%= render 'flash' %>
+<h1 class="text-xl">Edit item</h1>
+<turbo-frame id="<%= dom_id(@item) %>">
+  <section class="border rounded shadow my-4 p-4">
+    <%= render "form", item: @item %>
+    <%= button_to "Cancel", item_path(@item), method: :get, class: 'rounded bg-blue-400 text-white px-6 py-2 min-w-[10em] cursor-pointer' %>
+  </section>
+</turbo-frame>

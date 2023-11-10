@@ -1,0 +1,29 @@
+<%= form_with model: item do |form| %>
+  <% if item.errors.any? %>
+    <ul class="my-4">
+      <% item.errors.each do |error| %>
+        <li class="text-red-400"><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <p>
+      <%= form.label :title %>
+    </p>
+    <p>
+      <%= form.text_field :title %>
+    </p>
+  </div>
+
+  <div>
+    <p>
+      <%= form.label :description %>
+    </p>
+    <p>
+      <%= form.text_area :description %>
+    </p>
+  </div>
+
+  <%= form.submit value: 'Save', data: defined?(top) && top ? {turbo_frame: '_top'} : {}, method: :get, class: 'rounded bg-blue-400 text-white px-6 py-2 my-3 min-w-[10em] cursor-pointer' %>
+<% end %>

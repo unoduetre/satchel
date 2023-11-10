@@ -1,0 +1,6 @@
+<%= render 'flash' %>
+<h1 class="text-xl">New item</h1>
+<turbo-frame id="new_item">
+  <%= render "form", item: @item, top: true %>
+  <%= button_to "Cancel", items_path, method: :get, class: 'rounded bg-blue-400 text-white px-6 py-2 min-w-[10em] cursor-pointer', data: {turbo_frame: '_top'} %>
+</turbo-frame>

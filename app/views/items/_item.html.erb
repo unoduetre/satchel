@@ -1,0 +1,30 @@
+<turbo-frame id="<%= dom_id(item) %>">
+  <section class="border rounded shadow my-4 p-4">
+    <p>
+      <strong>Title:</strong>
+      <%= item.title %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= item.description %>
+    </p>
+    <p>
+      <strong>Created at:</strong>
+      <%= item.created_at %>
+    </p>
+    <p>
+      <strong>Updated at:</strong>
+      <%= item.updated_at %>
+    </p>
+    <p>
+      <%= button_to "Edit", edit_item_path(item), method: :get, class: 'rounded bg-blue-400 text-white px-6 py-2 my-3 min-w-[10em] cursor-pointer' %>
+    </p>
+    <p>
+    <%= button_to "Destroy", item, 
+      data: {turbo_confirm: 'Do you really want to delete?', turbo_frame: '_top'},
+      class: 'rounded bg-blue-400 text-white px-6 py-2 min-w-[10em] cursor-pointer',
+      method: :delete
+    %>
+    </p>
+  </section>
+</turbo-frame>

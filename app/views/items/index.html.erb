@@ -1,0 +1,21 @@
+<%= render 'flash' %>
+<h1 class="text-xl">Items</h1>
+<%= form_tag items_path, method: :get, class: 'grid grid-cols-3 gap-2' do %>
+  <%= search_field_tag :searched, session[:searched]  %>
+  <%= date_field_tag :start_date, session[:start_date] %>
+  <%= date_field_tag :end_date, session[:end_date] %>
+  <%= select_tag :sorting_column, options_for_select(Item::SORTING_COLUMNS.map {|c| [c]}, session[:sorting_column]) %>
+  <%= select_tag :sorting_direction, options_for_select(Item::SORTING_DIRECTIONS.map {|d| [d]}, session[:sorting_direction]) %>
+  <%= submit_tag 'Search', class: 'rounded bg-blue-400 text-white cursor-pointer' %>
+<% end %>
+
+<turbo-frame id="new_item">
+  <p class="my-7">
+    <%= button_to "New item", new_item_path, class: 'rounded bg-blue-400 text-white px-6 py-2 min-w-[10em] cursor-pointer', method: :get %>
+  </p>
+</turbo-frame>
+<div>
+  <% @items.each do |item| %>
+    <%= render item %>
+  <% end %>
+</div>
